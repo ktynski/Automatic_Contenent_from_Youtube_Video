@@ -277,33 +277,6 @@ def generate_long_form_article(transcript_text,token_len):
 
 
 
-# Get the transcript from the video
-transcription = get_transcript("Enter the Youtube URL you want to use here.")
-
-# Get the token length of the transcript
-token_count = count_tokens(transcription)
-print(token_count)
-
-
-
-# Summarize with either GPT3 or T5 depending on length of transcript:
-if token_count > 3000:
-  summarized_text = summarize_text(transcription)
-  new_token_count = count_tokens(summarized_text)
-else:
-  summarized_text = gpt_summarize_transcript(transcription,token_count)
-  new_token_count = count_tokens(summarized_text)
-
-
-
-# Generate the tweet thread using the summary
-tweets = generate_tweet_thread(summarized_text)
-
-
-
-# Generate the long-form article using the summary
-article = generate_long_form_article(summarized_text,new_token_count)
-
 
 
 
