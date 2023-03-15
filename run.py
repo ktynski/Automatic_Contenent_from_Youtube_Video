@@ -85,21 +85,6 @@ custom_css()
 
 
 
-# Add a title and instructions to your web app
-st.title("Video Transcript Summarizer")
-
-st.markdown(
-    """
-    🎥 So from just a **#YouTube video URL** you get:
-
-    🎤 A full transcription of the video  
-    📝 A summary of the transcription  
-    🐦 A tweet thread built from the transcription  
-    📄 An article outline built from the transcription  
-    📰 A full article built from the outline
-    """,
-    unsafe_allow_html=True,
-)
 
 
 
@@ -107,7 +92,7 @@ st.markdown(
 
 
 
-st.markdown("### 🎥 So from just a **#YouTube video URL** you get:")
+st.markdown("### 🎥 From just a **#YouTube video URL** you get:")
 st.markdown(
     """
     🎤 A full transcription of the video  
