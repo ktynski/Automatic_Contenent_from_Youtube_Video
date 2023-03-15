@@ -11,8 +11,91 @@ import logging
 import warnings
 import streamlit as st
 
+
+
+def custom_css():
+    st.markdown(
+        """
+        <style>
+            /* Set the app background color */
+            body {
+                background-color: #f5f5f5;
+            }
+
+            /* Set the title and headers font and color */
+            h1, h2 {
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                color: #3a3a3a;
+            }
+
+            /* Style the input boxes */
+            .stTextInput>div>div>input {
+                background-color: #ffffff;
+                border: 1px solid #e0e0e0;
+                border-radius: 5px;
+                padding: 6px 12px;
+                font-size: 16px;
+                color: #3a3a3a;
+            }
+            
+            /* Style the buttons */
+            .stButton>button {
+                background-color: #3a3a3a;
+                border: none;
+                border-radius: 5px;
+                padding: 10px 24px;
+                font-size: 16px;
+                color: #ffffff;
+            }
+            
+            /* Style the button on hover */
+            .stButton>button:hover {
+                background-color: #333333;
+                cursor: pointer;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+custom_css()
+
+
+
+
+
+
+
+
+
+
+
 # Add a title and instructions to your web app
 st.title("Video Transcript Summarizer")
+
+st.markdown(
+    """
+    🎥 So from just a **#YouTube video URL** you get:
+
+    🎤 A full transcription of the video  
+    📝 A summary of the transcription  
+    🐦 A tweet thread built from the transcription  
+    📄 An article outline built from the transcription  
+    📰 A full article built from the outline
+    """,
+    unsafe_allow_html=True,
+)
+
+
+
+
+
+
+
+
+
+
 st.write("Enter the YouTube video URL you would like to summarize:")
 
 # Add a text input box to collect the YouTube video URL
