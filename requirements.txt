@@ -1,0 +1,6 @@
+openai
+pytube
+pydub
+transformers
+sentencepiece
+streamlit
