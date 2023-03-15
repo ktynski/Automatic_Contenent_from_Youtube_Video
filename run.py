@@ -91,7 +91,7 @@ custom_css()
 
 
 
-
+st.title("Video Transcript Summarizer")
 st.markdown("### 🎥 From just a **#YouTube video URL** you get:")
 st.markdown(
     """
