@@ -263,6 +263,7 @@ if st.button("Summarize"):
         new_token_count = count_tokens(summarized_text)
     else:
         summarized_text = gpt_summarize_transcript(transcript, token_count)
+        new_token_count = count_tokens(summarized_text)
 
     tweets = generate_tweet_thread(summarized_text)
     article = generate_long_form_article(summarized_text, new_token_count)
