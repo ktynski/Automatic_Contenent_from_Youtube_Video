@@ -211,7 +211,7 @@ def gpt_summarize_transcript(transcript_text,token_len):
               {"role": "system", "content": "Absolutely, I will provide a concise and comprehensive summary of the transcript."},
               {"role": "user", "content": "Excellent, here is the transcript: " + transcript_text}
           ],
-          max_tokens=4000 - token_len,
+          max_tokens=3800 - token_len,
           n=1,
           stop=None,
           temperature=0.5,
