@@ -9,7 +9,7 @@ import textwrap
 from concurrent.futures import ThreadPoolExecutor
 import logging
 import warnings
-import streamlit
+import streamlit as st
 
 # Add a title and instructions to your web app
 st.title("Video Transcript Summarizer")
