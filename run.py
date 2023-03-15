@@ -1,10 +1,3 @@
-!pip install openai
-!pip install pytube
-!pip install pydub
-!pip install transformers
-!pip install -U transformers
-!pip install transformers sentencepiece
-
 import openai
 import pandas as pd
 from pytube import YouTube
