@@ -53,11 +53,25 @@ def custom_css():
                 background-color: #333333;
                 cursor: pointer;
             }
+
+            /* Section divider */
+            .section-divider {
+                border: none;
+                border-top: 2px solid #e0e0e0;
+                margin: 24px 0;
+            }
+
+            /* Section background */
+            .section-background {
+                background-color: #ffffff;
+                padding: 24px;
+                border-radius: 5px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
         </style>
         """,
         unsafe_allow_html=True,
     )
-
 
 custom_css()
 
@@ -93,17 +107,34 @@ st.markdown(
 
 
 
+st.markdown("### 🎥 So from just a **#YouTube video URL** you get:")
+st.markdown(
+    """
+    🎤 A full transcription of the video  
+    📝 A summary of the transcription  
+    🐦 A tweet thread built from the transcription  
+    📄 An article outline built from the transcription  
+    📰 A full article built from the outline
+    """,
+    unsafe_allow_html=True,
+)
 
+st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
 
+with st.markdown('<div class="section-background">', unsafe_allow_html=True):
+    st.title("Video Transcript Summarizer")
+    st.write("Enter the YouTube video URL you would like to summarize:")
+    video_url = st.text_input("YouTube video URL:")
 
-st.write("Enter the YouTube video URL you would like to summarize:")
+st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
 
-# Add a text input box to collect the YouTube video URL
-video_url = st.text_input("YouTube video URL:")
+with st.markdown('<div class="section-background">', unsafe_allow_html=True):
+    st.title("Your OpenAI API Key")
+    st.write("Enter your OpenAI API Key Here")
+    openai.api_key = st.text_input("Your OpenAI API Key:")
 
-st.title("Your OpenAI API Key")
-st.write("Enter your OpenAI API Key Here")
-openai.api_key = st.text_input("Your OpenAI API Key:")
+st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
+
 
 
 def get_transcript(youtubelink):
