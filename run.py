@@ -15,17 +15,13 @@ import streamlit as st
 st.title("Video Transcript Summarizer")
 st.write("Enter the YouTube video URL you would like to summarize:")
 
-st.title("Your OpenAI API Key")
-st.write("Enter your OpenAI API Key Here")
-
 # Add a text input box to collect the YouTube video URL
 video_url = st.text_input("YouTube video URL:")
 
+st.title("Your OpenAI API Key")
+st.write("Enter your OpenAI API Key Here")
+openai.api_key = st.text_input("Your OpenAI API Key:")
 
-
-
-# OpenAI API key
-openai.api_key = "Your Openai API key"
 
 def get_transcript(youtubelink):
     video_url = youtubelink
