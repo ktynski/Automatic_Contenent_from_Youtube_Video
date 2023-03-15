@@ -100,6 +100,7 @@ st.markdown(
     🐦 A tweet thread built from the transcription  
     📄 An article outline built from the transcription  
     📰 A full article built from the outline
+    ** Script takes 2-10min to run depending on the length of the video used
     """,
     unsafe_allow_html=True,
 )
