@@ -18,30 +18,7 @@ st.write("Enter the YouTube video URL you would like to summarize:")
 # Add a text input box to collect the YouTube video URL
 video_url = st.text_input("YouTube video URL:")
 
-# Add a button to start the summarization process
-if st.button("Summarize"):
-    # Perform the tasks as defined in your script
-    transcript = get_transcript(video_url)
-    token_count = count_tokens(transcript)
 
-    if token_count > 3000:
-        summarized_text = summarize_text(transcript)
-        new_token_count = count_tokens(summarized_text)
-    else:
-        summarized_text = gpt_summarize_transcript(transcript, token_count)
-
-    tweets = generate_tweet_thread(summarized_text)
-    article = generate_long_form_article(summarized_text, new_token_count)
-
-    # Display the results in the web app
-    st.subheader("Summary")
-    st.write(summarized_text)
-
-    st.subheader("Tweet Thread")
-    st.write("\n".join(tweets))
-
-    st.subheader("Long-form Article")
-    st.write(article)
 
 
 # OpenAI API key
@@ -276,7 +253,30 @@ def generate_long_form_article(transcript_text,token_len):
     return article
 
 
+# Add a button to start the summarization process
+if st.button("Summarize"):
+    # Perform the tasks as defined in your script
+    transcript = get_transcript(video_url)
+    token_count = count_tokens(transcript)
 
+    if token_count > 3000:
+        summarized_text = summarize_text(transcript)
+        new_token_count = count_tokens(summarized_text)
+    else:
+        summarized_text = gpt_summarize_transcript(transcript, token_count)
+
+    tweets = generate_tweet_thread(summarized_text)
+    article = generate_long_form_article(summarized_text, new_token_count)
+
+    # Display the results in the web app
+    st.subheader("Summary")
+    st.write(summarized_text)
+
+    st.subheader("Tweet Thread")
+    st.write("\n".join(tweets))
+
+    st.subheader("Long-form Article")
+    st.write(article)
 
 
 
