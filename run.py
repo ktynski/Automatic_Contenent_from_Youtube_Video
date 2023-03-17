@@ -127,18 +127,35 @@ st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
 def get_transcript(youtubelink):
     video_url = youtubelink
 
-    yt = YouTube(video_url)
+    # Create a yt-dlp instance
+    ydl_opts = {
+        'format': 'bestaudio/best',
+        'extractaudio': True,
+        'audioformat': 'mp3',
+        'outtmpl': 'audio_file.mp3',
+        'noplaylist': True,
+    }
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        # Extract video information
+        video_info = ydl.extract_info(video_url, download=False)
+        # Download the audio
+        ydl.download([video_url])
 
-    audio = yt.streams.filter(only_audio=True).first()
-    audio.download(filename='audio_file.mp3')
+    audio_file = "audio_file.mp3"
 
-    audio_file= open("audio_file.mp3", "rb")
-    transcript = openai.Audio.translate("whisper-1", audio_file)
+   
+
+    with open(audio_file, "rb") as audio:
+        transcript = openai.Audio.translate("whisper-1", audio)
 
     thetext = transcript['text']
 
     with open("full_transcript.txt", "w") as file:
         file.write(thetext)
+
+    # Remove the audio file after processing
+    os.remove(audio_file)
+
     return thetext
 
 
