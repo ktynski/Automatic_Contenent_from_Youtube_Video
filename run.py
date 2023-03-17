@@ -7,8 +7,6 @@ from transformers import GPT2TokenizerFast
 from transformers import pipeline
 import textwrap
 from concurrent.futures import ThreadPoolExecutor
-import logging
-import warnings
 import yt_dlp
 import os
 
