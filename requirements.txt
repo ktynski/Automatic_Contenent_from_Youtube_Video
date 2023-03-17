@@ -2,5 +2,7 @@ openai
 pytube
 pydub
 transformers
-sentencepiece
-streamlit
+transformers sentencepiece
+pafy
+youtube_dl
+yt-dlp
